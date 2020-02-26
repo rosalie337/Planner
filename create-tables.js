@@ -1,4 +1,4 @@
-const client = require('../lib/client');
+const client = require('../lib/client');// <---- what is this component?
 
 // async/await needs to run in a function
 run();
@@ -17,7 +17,7 @@ async function run() {
                     username VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL 
                 );           
-                CREATE TABLE todos (
+                CREATE TABLE list (
                     id SERIAL PRIMARY KEY NOT NULL,
                     task VARCHAR(512) NOT NULL,
                     complete BOOLEAN NOT NULL DEFAULT FALSE

@@ -1,4 +1,4 @@
-const client = require('../lib/client');
+const client = require('../lib/client');// <---- what is this component?
 
 // async/await needs to run in a function
 run();
@@ -11,15 +11,15 @@ async function run() {
         await client.query(`
         
             DROP TABLES IF EXIST users;
-            DROP TABLES IF EXIST plans;
+            DROP TABLES IF EXIST list;
         
         
-        `)
+        `);
 
     }
 
     catch (err) {
-        console.long(err);
+        console.log(err);
     }
     finally {
         client.end();
