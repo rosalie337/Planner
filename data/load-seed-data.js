@@ -1,7 +1,7 @@
 const client = require('../lib/client'); // <---- what is this component?
 
 // import seed data
-const planner = require('../planner');
+const planner = require('./planner');
 
 run ();
 

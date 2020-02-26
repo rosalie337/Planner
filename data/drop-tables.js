@@ -8,16 +8,11 @@ async function run() {
     try {
         await client.connect();
 
-        await client.query(`
-        
+        await client.query(`     
             DROP TABLES IF EXIST users;
-            DROP TABLES IF EXIST list;
-        
-        
+            DROP TABLES IF EXIST list;      
         `);
-
     }
-
     catch (err) {
         console.log(err);
     }
