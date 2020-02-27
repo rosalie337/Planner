@@ -20,23 +20,23 @@ app.use(express.urlencoded({ extended:true}));
 
 
 const authRoutes = createAuthRoutes({
-    selectUser(email) {
+    selectUser(username) {
         return client.query(`
-            SELECT id, email, hash, display_name as "displayName" 
+            SELECT id, username, hash, display_name as "displayName" 
             FROM users
-            WHERE email = $1;
+            WHERE username = $1;
         `,
-            [email]
+            [username]
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
         console.log(user);
         return client.query(`
-            INSERT into users (email, hash, display_name)
+            INSERT into users (username, hash, display_name)
             VALUES ($1, $2, $3)
-            RETURNING id, email, display_name as "displayName";
+            RETURNING id, username, display_name as "displayName";
         `,
-            [user.email, hash, user.displayName]
+            [user.username, hash, user.displayName]
         ).then(result => result.rows[0]);
     }
 });

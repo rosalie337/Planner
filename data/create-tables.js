@@ -1,4 +1,4 @@
-const client = require('../lib/client');// <---- what is this component?
+const client = require('../lib/client');// <--- connects to database
 
 // async/await needs to run in a function
 run();
@@ -10,7 +10,7 @@ async function run() {
         await client.connect();
 
         // run a query to create tables in SQL
-        // what is the hash in the Create Tables user? password?
+        // hash is the password
         await client.query(`
                 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
@@ -22,7 +22,7 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL,
                     quote VARCHAR(512) NOT NULL,
                     task VARCHAR(512) NOT NULL,
-                    user_id INTEGER NOT NULL REFERENCES user(id),
+                    user_id INTEGER NOT NULL REFERENCES users(id),
                     character VARCHAR(256) NOT NULL,
                     image VARCHAR(512) NOT NULL,
                     complete BOOLEAN NOT NULL DEFAULT FALSE

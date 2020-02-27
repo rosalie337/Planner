@@ -9,7 +9,7 @@ async function run() {
         await client.connect();
 
         await client.query(`     
-            DROP TABLES IF EXIST favorites;
+            DROP TABLES IF EXIST prioritize;
             DROP TABLES IF EXIST users;
             DROP TABLES IF EXIST list;      
         `);
