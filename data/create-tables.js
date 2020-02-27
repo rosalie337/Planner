@@ -15,11 +15,16 @@ async function run() {
                 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
                     username VARCHAR(256) NOT NULL,
-                    hash VARCHAR(512) NOT NULL 
+                    hash VARCHAR(512) NOT NULL, 
+                    display_name VARCHAR(256) NOT NULL
                 );           
                 CREATE TABLE list (
                     id SERIAL PRIMARY KEY NOT NULL,
+                    quote VARCHAR(512) NOT NULL,
                     task VARCHAR(512) NOT NULL,
+                    user_id INTEGER NOT NULL REFERENCES user(id),
+                    character VARCHAR(256) NOT NULL,
+                    image VARCHAR(512) NOT NULL,
                     complete BOOLEAN NOT NULL DEFAULT FALSE
             );
         `);

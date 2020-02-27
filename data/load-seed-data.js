@@ -14,8 +14,8 @@ async function run() {
         await Promise.all(
             planner.map(list => {
                 return client.query(`
-                    INSERT into list (task, complete)
-                    VALUES ($1, $2); 
+                    INSERT into list (task, complete, user_id)
+                    VALUES ($1, $2, $3); 
                 `,
                 [list.task, list.complete]);
             })
